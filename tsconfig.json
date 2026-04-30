@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "strictNullChecks": true,
+    "checkJs": false,
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "target": "ES2021",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "paths": {
+      "@common/*": ["./src/common/*"]
+    },
+  },
+  "include": ["./.eslintrc.js", "src/**/**/*.ts", "tests/**/**/*.ts"],
+  "exclude": [
+    "**/*.d.ts",
+    "**/*spec.ts",
+    "tests/**/*",
+    "**/__tests__/*",
+    "node_modules",
+    "dist",
+    "build",
+    "node_modules",
+    "config"
+  ]
+}

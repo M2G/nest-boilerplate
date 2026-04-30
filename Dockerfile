@@ -1,0 +1,36 @@
+ARG NODE_VERSION=24.2.0
+ARG ALPINE_VERSION=3.21
+
+# Build stage
+FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} AS build
+
+# Install security updates and build dependencies
+RUN apk update && apk upgrade && \
+    apk add --no-cache --virtual .build-deps \
+    make \
+    gcc \
+    g++ \
+    python3 \
+    && rm -rf /var/cache/apk/*
+
+# Set working directory to App dir
+WORKDIR /app
+
+# Copy package files first for better caching
+#COPY package*.json ./
+#COPY tsconfig.json ./
+
+# Install dependencies (including dev dependencies for build)
+#RUN npm ci --only=production=false && \
+#    npm cache clean --force
+
+# Copy source code
+COPY . .
+
+# Create environment file if it doesn't exist
+RUN [ -f .env ] || cp .env.example .env || echo "# Environment variables" > .env
+
+# Install dependencies
+RUN npm install
+
+CMD [ "/app/scripts/run.sh" ]

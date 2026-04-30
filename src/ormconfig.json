@@ -1,0 +1,10 @@
+{
+  "autoLoadModels": true,
+  "database": "test_db",
+  "dialect": "postgres",
+  "host": "postgres",
+  "password": "postgres",
+  "port": 5432,
+  "synchronize": true,
+  "username": "postgres"
+}

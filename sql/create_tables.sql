@@ -1,0 +1,5 @@
+CREATE DATABASE test_db;
+
+/*
+CREATE TABLE IF NOT EXISTS Tables (...);
+*/

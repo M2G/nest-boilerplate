@@ -1,0 +1,5 @@
+/*
+INSERT INTO Tables (...)
+VALUES
+('...'),
+*/
